@@ -19,9 +19,9 @@ a {
   --index-color-intense: #336574;
   --index-color-subtle: #336574;
   --contact-color-intense: #743362;
-  --contact-color-subtle: #6B498C;
-  --about-color-intense: #744A33;
-  --about-color-subtle: #744A33 0.7;
+  --contact-color-subtle: #6b498c;
+  --about-color-intense: #744a33;
+  --about-color-subtle: #744a33;
 }
 
 /* CODE */
@@ -59,10 +59,6 @@ nav .a_container {
   writing-mode: vertical-rl;
 }
 
-a.text-link {
-  padding-top: 15vw;
-}
-
 nav .a_container:nth-of-type(1) {
   /*padding-top: 30vw;*/
   justify-content: flex-start;
@@ -77,36 +73,53 @@ nav .a_container:nth-child(3) {
   justify-content: flex-end;
 }
 
-main {
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  margin-left: 10vw;
+a.text-link {
+  padding-top: 15vw;
 }
 
-main .headline {
+.layout {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10vw;
+  margin-left: 5vw;
+  margin-right: 10vw;
   align-self: center;
-  
 }
 
 h1 {
   font-weight: 400;
-  padding: 40px 0;
-  font-size: 2.5rem;
+  margin-top: 20px;
+  font-size: 3rem;
+  margin-bottom: 100px;
 }
 
 h2 {
-  font-size: 1.87rem;
+  font-size: 2.25rem;
   font-weight: 400;
-  text-transform: none;
+  margin-top: 80px;
 }
 
+h2.index {
+  margin-bottom: 200px;
+}
+
+h3 {
+  font-size: 1.68rem;
+  font-weight: 400;
+}
 
 li {
   font-weight: 400;
   padding: 20px 0;
-  font-size: 1.87rem;
   text-transform: none;
+  font-size: 1.25rem;
+}
+
+ul {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 a {
@@ -114,9 +127,77 @@ a {
 }
 
 p {
-  font-size: 1.38rem;
+  font-size: 1.26rem;
+  font-weight: 400;
   text-transform: none;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  line-height: 1.5;
+}
 
+.details {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.solution_link {
+  font-size: 3rem;
+  align-self: center;
+  background-color: var(--index-color-intense);
+  color: var(--background-color);
+  padding: 10px;
+}
+
+section.project_images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  margin-top: 100px;
+}
+
+footer {
+  margin-top: 80px;
+  font-size: 1rem;
+}
+
+a:hover.projects {
+  color: var(--index-color-intense);
+}
+
+#arrow {
+  margin-top: 20px;
+}
+
+#background_lines {
+  display: flex;
+  position: fixed;
+  z-index: -1000;
+  width: 15vw;
+  flex-direction: row;
+  text-transform: uppercase;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  height: 100%;
+  width: 33%;
+  align-items: center;
+  border-right: 2px black solid;
+}
+
+#about-tag-on-about-page {
+  color: #744a33;
+}
+
+#contact-tag-on-contact-page {
+  color: #6b498c;
+}
+
+#projects-tag-on-projects-page {
+  color: var(--index-color-subtle);
 }
 
 /* ANIMATION */
@@ -139,60 +220,71 @@ p {
   }
 }
 
-.over-arrow {
-  animation-name: get-bigger;
-  animation-duration: 1s;
-}
+/* MEDIA QUERIES */
 
-@keyframes get-bigger {
-  from {
-    scale: 1.25;
+@media only screen and (max-width: 900px) {
+  .project_images img {
+    max-width: 80vw;
+  }
+  .solution_link {
+    font-size: 1.5rem;
   }
 
-  to {
-   scale: 1.25;
+  section.project_images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-#background_lines {
-  display: flex;
-  position: fixed;
-  z-index: -1000;
-  width: 15vw;
-  flex-direction: row;
-  text-transform: uppercase;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
+@media only screen and (max-width: 600px) {
+  nav {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.68rem;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  #background_lines {
+    display: none;
+  }
+
+  section.project_images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer {
+    margin-top: 150px;
+  }
+
+  .project_images img {
+    max-width: 80vw;
+  }
+
+  .solution_link {
+    font-size: 1.5rem;
+    background-color: var(--background-color);
+    color: var(--default-textcolor)
+  }
+  .layout {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    align-self: center;
+  } 
 }
-
-
-.line {
-  height: 100%;
-  width: 33%;
-  align-items: center;
-  border-right: 2px black solid;
-}
-
-
-#postcard {
-  width: 80%;
-}
-
-
-
-#about-tag-on-about-page {
-  color: #744A33;
-}
-
-
-#contact-tag-on-contact-page {
-  color: #6B498C;
-}
-
-
-#projects-tag-on-projects-page {
-  color: var(--index-color-subtle);
-}
-
-
